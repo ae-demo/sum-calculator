@@ -4,6 +4,10 @@
     {
       "path": "specs/design/components/sum-webapp/prototype.json",
       "checkedHash": "23f36d615dc7f52f902cb25bfd18ae453eae4d52fa65df45deba4abda22da396"
+    },
+    {
+      "path": "specs/design/security.json",
+      "checkedHash": "c31fe42fe2a60f1ef85a19424f3eca907e6ab3a8d8f454b05ee028179c7f4d28"
     }
   ]
 }
