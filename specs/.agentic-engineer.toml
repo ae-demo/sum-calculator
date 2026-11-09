@@ -1,0 +1,4 @@
+apiVersion = "agentic-engineer/v1"
+name = "sum-calculator"
+createdAt = "2026-11-09T14:22:24Z"
+idea = "design simple systems with a back service that can add two numbers and user interface to provide the 2 numbers and submit and user should see the answer"
