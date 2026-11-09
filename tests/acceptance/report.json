@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-09T15:59:49.291588Z",
+  "commit": "77e16ae6b70a2145b0b2db28b436ea02b0e675d3",
+  "baseUrl": "https://http-sum-calculato-development-default-6c3c999c.apps.94.72.97.95.sslip.io",
+  "isolation": "none established: no scenario got past the session check, so no container could be created and no assertion was made",
+  "scenarios": [
+    {
+      "feature": "F1 Add two numbers",
+      "featureFile": "specs/validation/acceptance/F1-add-two-numbers.feature",
+      "line": 6,
+      "rule": "A signed-in user sees the sum of the two numbers they submit, below the form",
+      "scenario": "Adding a decimal and a negative number",
+      "tags": [],
+      "outcome": "blocked",
+      "steps": [
+        {
+          "text": "Nimali the user is signed in and on the calculator page",
+          "keyword": "Given",
+          "command": "agent-browser snapshot -i",
+          "observed": "the calculator page never left 'Checking your session\u2026': the browser's GET to https://default-idp.94.72.97.95.sslip.io/.well-known/openid-configuration never completed (no status; the IdP answers curl 200 and the OPTIONS preflight 204 but sends no Access-Control-Allow-Origin for the app origin), so no sign-in and no form was reachable"
+        },
+        {
+          "text": "Nimali enters \"12.5\" and \"-4.25\" and submits",
+          "keyword": "When",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "the answer \"8.25\" is shown below the form",
+          "keyword": "Then",
+          "observed": "not performed: no form or sign-in control was rendered"
+        }
+      ]
+    },
+    {
+      "feature": "F1 Add two numbers",
+      "featureFile": "specs/validation/acceptance/F1-add-two-numbers.feature",
+      "line": 11,
+      "rule": "A signed-in user sees the sum of the two numbers they submit, below the form",
+      "scenario": "Adding two whole numbers",
+      "tags": [],
+      "outcome": "blocked",
+      "steps": [
+        {
+          "text": "Nimali the user is signed in and on the calculator page",
+          "keyword": "Given",
+          "command": "agent-browser snapshot -i",
+          "observed": "the calculator page never left 'Checking your session\u2026': the browser's GET to https://default-idp.94.72.97.95.sslip.io/.well-known/openid-configuration never completed (no status; the IdP answers curl 200 and the OPTIONS preflight 204 but sends no Access-Control-Allow-Origin for the app origin), so no sign-in and no form was reachable"
+        },
+        {
+          "text": "Nimali enters \"2\" and \"3\" and submits",
+          "keyword": "When",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "the answer \"5\" is shown below the form",
+          "keyword": "Then",
+          "observed": "not performed: no form or sign-in control was rendered"
+        }
+      ]
+    },
+    {
+      "feature": "F1 Add two numbers",
+      "featureFile": "specs/validation/acceptance/F1-add-two-numbers.feature",
+      "line": 20,
+      "rule": "Only two valid numbers may be submitted",
+      "scenario": "An empty field blocks submission",
+      "tags": [
+        "@negative"
+      ],
+      "outcome": "blocked",
+      "steps": [
+        {
+          "text": "Nimali the user is signed in and on the calculator page",
+          "keyword": "Given",
+          "command": "agent-browser snapshot -i",
+          "observed": "the calculator page never left 'Checking your session\u2026': the browser's GET to https://default-idp.94.72.97.95.sslip.io/.well-known/openid-configuration never completed (no status; the IdP answers curl 200 and the OPTIONS preflight 204 but sends no Access-Control-Allow-Origin for the app origin), so no sign-in and no form was reachable"
+        },
+        {
+          "text": "Nimali enters \"7\" in the first field, leaves the second empty and submits",
+          "keyword": "When",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "no answer is shown",
+          "keyword": "Then",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "a message appears beside the second field",
+          "keyword": "And",
+          "observed": "not performed: no form or sign-in control was rendered"
+        }
+      ]
+    },
+    {
+      "feature": "F1 Add two numbers",
+      "featureFile": "specs/validation/acceptance/F1-add-two-numbers.feature",
+      "line": 27,
+      "rule": "Only two valid numbers may be submitted",
+      "scenario": "A non-numeric value blocks submission",
+      "tags": [
+        "@negative"
+      ],
+      "outcome": "blocked",
+      "steps": [
+        {
+          "text": "Nimali the user is signed in and on the calculator page",
+          "keyword": "Given",
+          "command": "agent-browser snapshot -i",
+          "observed": "the calculator page never left 'Checking your session\u2026': the browser's GET to https://default-idp.94.72.97.95.sslip.io/.well-known/openid-configuration never completed (no status; the IdP answers curl 200 and the OPTIONS preflight 204 but sends no Access-Control-Allow-Origin for the app origin), so no sign-in and no form was reachable"
+        },
+        {
+          "text": "Nimali enters \"abc\" and \"4\" and submits",
+          "keyword": "When",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "no answer is shown",
+          "keyword": "Then",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "a message appears beside the first field",
+          "keyword": "And",
+          "observed": "not performed: no form or sign-in control was rendered"
+        }
+      ]
+    },
+    {
+      "feature": "F1 Add two numbers",
+      "featureFile": "specs/validation/acceptance/F1-add-two-numbers.feature",
+      "line": 36,
+      "rule": "A new submission replaces the previous answer",
+      "scenario": "Submitting again with different numbers",
+      "tags": [],
+      "outcome": "blocked",
+      "steps": [
+        {
+          "text": "Nimali has submitted \"2\" and \"3\" and sees the answer \"5\"",
+          "keyword": "Given",
+          "command": "agent-browser snapshot -i",
+          "observed": "the calculator page never left 'Checking your session\u2026': the browser's GET to https://default-idp.94.72.97.95.sslip.io/.well-known/openid-configuration never completed (no status; the IdP answers curl 200 and the OPTIONS preflight 204 but sends no Access-Control-Allow-Origin for the app origin), so no sign-in and no form was reachable"
+        },
+        {
+          "text": "Nimali changes the numbers to \"10\" and \"-1\" and submits",
+          "keyword": "When",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "the answer \"9\" is shown and \"5\" is no longer shown",
+          "keyword": "Then",
+          "observed": "not performed: no form or sign-in control was rendered"
+        }
+      ]
+    },
+    {
+      "feature": "F1 Add two numbers",
+      "featureFile": "specs/validation/acceptance/F1-add-two-numbers.feature",
+      "line": 45,
+      "rule": "When the sum cannot be calculated the user is told",
+      "scenario": "The calculation service is unavailable",
+      "tags": [
+        "@negative"
+      ],
+      "outcome": "blocked",
+      "steps": [
+        {
+          "text": "Nimali the user is signed in and the calculation service is unavailable",
+          "keyword": "Given",
+          "command": "agent-browser snapshot -i",
+          "observed": "the calculator page never left 'Checking your session\u2026': the browser's GET to https://default-idp.94.72.97.95.sslip.io/.well-known/openid-configuration never completed (no status; the IdP answers curl 200 and the OPTIONS preflight 204 but sends no Access-Control-Allow-Origin for the app origin), so no sign-in and no form was reachable"
+        },
+        {
+          "text": "Nimali enters \"2\" and \"3\" and submits",
+          "keyword": "When",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "no answer is shown",
+          "keyword": "Then",
+          "observed": "not performed: no form or sign-in control was rendered"
+        },
+        {
+          "text": "a message says the sum could not be calculated",
+          "keyword": "And",
+          "observed": "not performed: no form or sign-in control was rendered"
+        }
+      ]
+    }
+  ]
+}
