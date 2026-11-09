@@ -14,13 +14,16 @@ service http:InterceptableService / on ep0 {
     # SumResultOk (The exact sum of the two numbers)
     # ErrorBadRequest (A number is missing or not a valid decimal)
     # ErrorUnauthorized (Not signed in or not permitted)
-    resource function post sums(http:RequestContext ctx, @http:Payload SumRequest payload) returns SumResultOk|ErrorBadRequest|ErrorUnauthorized|http:Unauthorized|http:NotImplemented {
+    resource function post sums(http:RequestContext ctx, @http:Payload SumRequest payload) returns SumResultOk|ErrorBadRequest|ErrorUnauthorized {
         GatewayCaller|http:Unauthorized caller = requireGatewayCaller(ctx);
         if caller is http:Unauthorized {
-            return caller;
+            return <ErrorUnauthorized>{body: {code: 401, message: "Unauthorized", description: "no verified caller on this request"}};
         }
-        // F1 implements the addition
-        return http:NOT_IMPLEMENTED;
+        string|error total = addDecimalStrings(payload.a, payload.b);
+        if total is error {
+            return <ErrorBadRequest>{body: {code: 400, message: "Bad Request", description: total.message()}};
+        }
+        return <SumResultOk>{body: {sum: total}};
     }
 }
 
