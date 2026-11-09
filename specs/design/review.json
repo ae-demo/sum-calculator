@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "artifacts": [
+    {
+      "path": "specs/design/components/sum-webapp/prototype.json",
+      "checkedHash": "23f36d615dc7f52f902cb25bfd18ae453eae4d52fa65df45deba4abda22da396"
+    }
+  ]
+}

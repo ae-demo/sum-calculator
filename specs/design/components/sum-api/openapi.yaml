@@ -1,0 +1,76 @@
+openapi: 3.0.3
+info:
+  title: Sum API
+  version: 0.1.0
+servers:
+  - url: /
+paths:
+  /sums:
+    post:
+      operationId: createSum
+      summary: "Add two numbers and return their sum; nothing is stored"
+      security:
+        - oauth2: [sums:calculate]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SumRequest'
+      responses:
+        '200':
+          description: "The exact sum of the two numbers"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SumResult'
+        '400':
+          description: "A number is missing or not a valid decimal"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '401':
+          description: "Not signed in or not permitted"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: /oauth2/authorize
+          tokenUrl: /oauth2/token
+          scopes:
+            sums:calculate: Add two numbers
+  schemas:
+    SumRequest:
+      type: object
+      required: [a, b]
+      properties:
+        a:
+          type: string
+          description: "First number as a decimal string, may be negative, e.g. -4.25"
+        b:
+          type: string
+          description: "Second number as a decimal string, may be negative"
+    SumResult:
+      type: object
+      required: [sum]
+      properties:
+        sum:
+          type: string
+          description: "Exact a + b as a decimal string, not rounded"
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code: { type: integer, description: "HTTP or application error code" }
+        message: { type: string, description: "short human-readable label" }
+        description: { type: string, description: "detailed explanation" }
+        moreInfo: { type: string, description: "URI to documentation" }
+security:
+  - oauth2: []

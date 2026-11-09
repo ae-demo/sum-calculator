@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "name": "Sum Calculator",
+  "entryScreen": "screen.calculator",
+  "roles": [{ "id": "SumUser", "name": "User" }],
+  "states": [
+    { "id": "state.default", "name": "Default" },
+    { "id": "state.validation-error", "name": "Invalid numbers" },
+    { "id": "state.failed", "name": "Sum service unavailable" }
+  ],
+  "screens": [
+    { "id": "screen.calculator", "name": "Add two numbers", "roleIds": ["SumUser"] },
+    { "id": "screen.account", "name": "Account", "roleIds": ["SumUser"] },
+    { "id": "screen.signed-out", "name": "Signed out", "roleIds": ["SumUser"] }
+  ],
+  "flows": [
+    { "id": "flow.add-numbers", "name": "Add two numbers", "roleId": "SumUser",
+      "screenIds": ["screen.calculator"] }
+  ]
+}

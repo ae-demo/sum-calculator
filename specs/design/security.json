@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "permissions": [
+    {
+      "resource": "sums",
+      "component": "sum-api",
+      "description": "Adding two numbers",
+      "actions": [
+        { "handle": "calculate", "description": "Submit two numbers and receive their sum; nothing is stored" }
+      ]
+    }
+  ],
+  "groups": [
+    { "name": "SumUsers", "description": "People who may use the sum calculator" }
+  ],
+  "roles": [
+    {
+      "name": "SumUser",
+      "description": "The signed-in User who enters two numbers and sees their sum. Holds no other capability; there is nothing stored to see.",
+      "stories": ["F1.1", "F1.2", "F1.3", "F1.4", "F1.5"],
+      "grants": ["sums:calculate"],
+      "assignTo": ["SumUsers"]
+    }
+  ],
+  "testUsers": [
+    { "username": "test-sum-user", "roles": ["SumUser"] }
+  ]
+}

@@ -1,0 +1,12 @@
+title Sum Calculator
+
+component sum-webapp as "Sum Calculator Web" web-application
+component sum-api as "Sum API" service
+
+east user-auth as "Thunder Auth" identity-server
+
+north -> sum-webapp
+
+sum-webapp -> sum-api
+sum-webapp -> user-auth
+sum-api -> user-auth

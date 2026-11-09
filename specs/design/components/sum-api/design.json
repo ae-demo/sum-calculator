@@ -1,0 +1,16 @@
+{
+  "name": "sum-api",
+  "type": "service",
+  "version": "0.1.0",
+  "language": "Ballerina",
+  "buildpack": "docker",
+  "appPath": "sum-api",
+  "entrypoint": "deployment/service",
+  "exposure": "internet",
+  "dependencies": [
+    { "kind": "platform-resource", "name": "user-auth", "resourceType": "thunder-app" }
+  ],
+  "description": "Stateless back service that adds two decimal numbers (negatives allowed) and returns the exact sum without rounding. It is a separate deployable because the requirements place the addition in a back service rather than the page. It stores nothing, keeps no history, and offers no operation other than addition.",
+  "stories": ["F1.1", "F1.2", "F1.4"],
+  "skillsPinned": ["openapi-conventions", "ballerina", "thunder-authentication", "api-management"]
+}
