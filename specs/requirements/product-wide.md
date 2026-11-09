@@ -8,4 +8,5 @@ Rules that apply to more than one feature.
 
 ## Decisions
 
+- Numbers may be decimals and negatives.
 - The addition is performed by the back service, not in the web page.
